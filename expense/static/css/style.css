@@ -1,0 +1,31 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+.card-header {
+    background-color: #2e3b4e;
+    color: white;
+}
+
+.card-body {
+    background-color: #fff;
+}
+
+.btn-primary, .btn-secondary, .btn-warning, .btn-danger {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
