@@ -1,1 +1,1 @@
-####Expense Tracker Using Django
+Expense Tracker Using Django
