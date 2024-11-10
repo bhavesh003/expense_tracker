@@ -4,7 +4,6 @@ class Expense(models.Model):
     CATEGORY_CHOICES = [
         ('Food', 'Food'),
         ('Transport', 'Transport'),
-        ('Utilities', 'Utilities'),
         ('Entertainment', 'Entertainment'),
         ('Other', 'Other'),
     ]
