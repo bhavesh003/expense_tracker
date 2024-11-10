@@ -6,6 +6,7 @@ class Expense(models.Model):
         ('Transport', 'Transport'),
         ('Utilities', 'Utilities'),
         ('Entertainment', 'Entertainment'),
+        ('Other', 'Other'),
     ]
     
     title = models.CharField(max_length=100)

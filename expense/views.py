@@ -44,7 +44,7 @@ def expense_list(request):
     # Calculate the total expense BEFORE pagination
     total_expense = expenses.aggregate(Sum('amount'))['amount__sum'] or 0
 
-    # Pagination: 5 expenses per page
+    # Pagination: 15 expenses per page
     paginator = Paginator(expenses, 15)
     page = request.GET.get('page')
     expenses = paginator.get_page(page)
@@ -66,14 +66,16 @@ def expense_list(request):
 # Update expense
 def update_expense(request, pk):
     expense = get_object_or_404(Expense, pk=pk)
+
     if request.method == 'POST':
-        form = ExpenseForm(request.POST, instance=expense)
+        form = ExpenseForm(request.POST, instance=expense)  # Populates the form with existing data
         if form.is_valid():
             form.save()
-            return redirect('expense_list')
+            return redirect('expense_list')  # Redirect to the list view after saving
     else:
-        form = ExpenseForm(instance=expense)
-    return render(request, 'expense/update_expense.html', {'form': form})
+        form = ExpenseForm(instance=expense)  # Pre-fill the form with the current expense details
+
+    return render(request, 'expense/update_expense.html', {'form': form, 'expense': expense})
 
 # Delete expense
 def delete_expense(request, pk):

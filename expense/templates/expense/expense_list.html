@@ -22,7 +22,7 @@
 
         <!-- Total Expense Display -->
         <div class="mb-4">
-            <h4 class="font-weight-bold">Total Expense: ${{ total_expense }}</h4>
+            <h4 class="font-weight-bold">Total Expense: Rs {{ total_expense }}</h4>
         </div>
 
         <!-- Filters Form (Card) -->
@@ -36,6 +36,7 @@
                         <option value="Food" {% if category_filter == 'Food' %}selected{% endif %}>Food</option>
                         <option value="Transport" {% if category_filter == 'Transport' %}selected{% endif %}>Transport</option>
                         <option value="Entertainment" {% if category_filter == 'Entertainment' %}selected{% endif %}>Entertainment</option>
+                        <option value="Other" {% if category_filter == 'Other' %}selected{% endif %}>Other</option>
                     </select>
                 </div>
 
@@ -81,13 +82,13 @@
                     {% for expense in expenses %}
                         <tr>
                             <td>{{ expense.title }}</td>
-                            <td>${{ expense.amount }}</td>
+                            <td>Rs {{ expense.amount }}</td>
                             <td>{{ expense.get_category_display }}</td>
                             <td>{{ expense.date }}</td>
                             <td>{{ expense.description }}</td>
                             <td class="d-flex">
                                 <a href="{% url 'update_expense' expense.pk %}" class="btn btn-warning btn-sm mr-2">Edit</a>
-                                <a href="{% url 'delete_expense' expense.pk %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this expense?');">Delete</a>
+                                <a href="{% url 'delete_expense' expense.pk %}" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                     {% endfor %}
